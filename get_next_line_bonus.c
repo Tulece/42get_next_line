@@ -6,7 +6,7 @@
 /*   By: anporced <anporced@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 18:38:47 by anporced          #+#    #+#             */
-/*   Updated: 2023/11/06 15:36:21 by anporced         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:37:54 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ char	*get_next_line(int fd)
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
-	stash[fd] = f_read(fd, buffer, stash[fd]);
+	stash[fd] = ft_read(fd, buffer, stash[fd]);
 	line = ft_get_line(stash[fd]);
 	stash[fd] = ft_stash_update(stash[fd]);
 	return (line);
