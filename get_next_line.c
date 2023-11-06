@@ -6,12 +6,11 @@
 /*   By: anporced <anporced@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 19:09:06 by anporced          #+#    #+#             */
-/*   Updated: 2023/11/06 14:16:23 by anporced         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:35:38 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 char	*ft_stash(char *stash)
 {
@@ -115,8 +114,3 @@ char	*get_next_line(int fd)
 	stash = ft_stash_update(stash);
 	return (line);
 }
-
-// int	main(void)
-// {
-// 	printf("%s\n", get_next_line(100));
-// }

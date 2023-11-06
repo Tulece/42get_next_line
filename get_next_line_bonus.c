@@ -6,7 +6,7 @@
 /*   By: anporced <anporced@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 18:38:47 by anporced          #+#    #+#             */
-/*   Updated: 2023/11/06 14:15:02 by anporced         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:36:21 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	*ft_stash_update(char *stash)
 	return (res);
 }
 
-char	*f_read(int fd, char *buffer, char *stash)
+char	*ft_read(int fd, char *buffer, char *stash)
 {
 	int	read_value;
 
