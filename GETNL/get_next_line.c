@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anporced <anporced@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 19:09:06 by anporced          #+#    #+#             */
-/*   Updated: 2023/11/06 13:44:48 by anporced         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:16:23 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,12 +106,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-	{
-		if (stash)
-			free(stash);
-		printf("a");
-		return (NULL);
-	}
+		return (free(stash), stash = NULL);
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
@@ -121,8 +116,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
-{
-	char	buffer[6];
-	printf("%s\n", get_next_line(100));
-}
+// int	main(void)
+// {
+// 	printf("%s\n", get_next_line(100));
+// }

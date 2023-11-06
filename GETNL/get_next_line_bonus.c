@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anporced <anporced@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 18:38:47 by anporced          #+#    #+#             */
-/*   Updated: 2023/11/06 12:12:11 by anporced         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:15:02 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,30 +79,23 @@ char	*ft_stash_update(char *stash)
 
 char	*f_read(int fd, char *buffer, char *stash)
 {
-	int		r;
+	int	read_value;
 
-	r = 1;
-	while (r && !ft_strchr(stash, '\n'))
+	read_value = 1;
+	while (read_value > 0 && !ft_strchr(stash, '\n'))
 	{
-		r = read(fd, buffer, BUFFER_SIZE);
-		if (r <= -1)
+		read_value = read(fd, buffer, BUFFER_SIZE);
+		if (read_value <= -1)
+			return (free(buffer), free(stash), NULL);
+		if (read_value > 0)
 		{
-			free(buffer);
-			free(stash);
-			return (NULL);
-		}
-		if (r == 0)
-			break ;
-		buffer[r] = '\0';
-		stash = ft_strjoin(stash, buffer);
-		if (!stash)
-		{
-			free(buffer);
-			return (NULL);
+			buffer[read_value] = '\0';
+			stash = ft_strjoin(stash, buffer);
+			if (!stash)
+				return (free(buffer), NULL);
 		}
 	}
-	free(buffer);
-	return (stash);
+	return (free(buffer), stash);
 }
 
 char	*get_next_line(int fd)
